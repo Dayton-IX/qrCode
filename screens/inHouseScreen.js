@@ -7,6 +7,7 @@ export default function App() {
 	const [hasPermission, setHasPermission] = useState(null);
 	const [scanned, setScanned] = useState(false);
 	const [scanning, setScanning] = useState(false);
+	const [qrData, setQrData] = useState('')
 
 	useEffect(() => {
 		(async () => {
@@ -18,7 +19,8 @@ export default function App() {
 	const handleBarCodeScanned = ({ type, data }) => {
 		setScanned(true);
 		setScanning(false);
-		alert(`Qr code with data: [${data}] has been scanned!`);
+		// alert(`Qr code with data: [${data}] has been scanned!`);
+		setQrData(data);
 	};
 
 	if (hasPermission === false) {
@@ -41,6 +43,9 @@ export default function App() {
 				<Text style={styles.qrText}>Scan Qr Code</Text>
 			</TouchableOpacity>
 		}
+		<View style={styles.data}>
+			<Text style={styles.dataText}>{qrData}</Text>
+		</View>
 	</View>
   );
 }
