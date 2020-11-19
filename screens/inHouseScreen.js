@@ -17,6 +17,7 @@ export default function App() {
 
 	const handleBarCodeScanned = ({ type, data }) => {
 		setScanned(true);
+		setScanning(false);
 		alert(`Qr code with data: [${data}] has been scanned!`);
 	};
 
@@ -27,18 +28,19 @@ export default function App() {
   return (
 	<View style={styles.screen}>
 	  	{scanning ? 
-	   		<TouchableOpacity style={styles.qrButton} onPress={() => {
+			<BarCodeScanner
+			onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+			style={StyleSheet.absoluteFillObject}
+			barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
+			/>
+			:
+			<TouchableOpacity style={styles.qrButton} onPress={() => {
 				setScanned(false);
 				setScanning(true);
 			}}>
 				<Text style={styles.qrText}>Scan Qr Code</Text>
 			</TouchableOpacity>
-			:
-			<BarCodeScanner
-			onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-			style={StyleSheet.absoluteFillObject}
-			barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
-		/>}
+		}
 	</View>
   );
 }
@@ -48,5 +50,17 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
-	}
+	},
+	qrButton: {
+		backgroundColor: '#e74c3c',
+		width: 200,
+		alignItems: 'center',
+		paddingVertical: 20,
+		marginBottom: 50,
+		borderRadius: 10
+	},
+	qrText: {
+		color: '#fff',
+		fontSize: 18
+	},
 })
