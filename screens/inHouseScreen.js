@@ -36,16 +36,18 @@ export default function App() {
 			barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
 			/>
 			:
-			<TouchableOpacity style={styles.qrButton} onPress={() => {
-				setScanned(false);
-				setScanning(true);
-			}}>
-				<Text style={styles.qrText}>Scan Qr Code</Text>
-			</TouchableOpacity>
+			<View style={styles.container}>
+				<TouchableOpacity style={styles.qrButton} onPress={() => {
+					setScanned(false);
+					setScanning(true);
+				}}>
+					<Text style={styles.qrText}>Scan Qr Code</Text>
+				</TouchableOpacity>
+				<View style={styles.data}>
+					<Text style={styles.dataText}>{qrData}</Text>
+				</View>
+			</View>
 		}
-		<View style={styles.data}>
-			<Text style={styles.dataText}>{qrData}</Text>
-		</View>
 	</View>
   );
 }
@@ -55,6 +57,9 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
+	},
+	container: {
+		alignItems: 'center'
 	},
 	qrButton: {
 		backgroundColor: '#e74c3c',
