@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function App() {
+export default function App({route, navigation}) {
 	const [hasPermission, setHasPermission] = useState(null);
 	const [scanned, setScanned] = useState(false);
 	const [scanning, setScanning] = useState(false);
@@ -11,8 +11,8 @@ export default function App() {
 
 	useEffect(() => {
 		(async () => {
-		const { status } = await BarCodeScanner.requestPermissionsAsync();
-		setHasPermission(status === 'granted');
+			const { status } = await BarCodeScanner.requestPermissionsAsync();
+			setHasPermission(status === 'granted');
 		})();
 	}, []);
 
@@ -21,6 +21,7 @@ export default function App() {
 		setScanning(false);
 		// alert(`Qr code with data: [${data}] has been scanned!`);
 		setQrData(data);
+		navigation.navigate('Menu', {restaurantID: data});
 	};
 
 	if (hasPermission === false) {

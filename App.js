@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import inHouseScreen from './screens/inHouseScreen';
 import toGoScreen from './screens/toGoScreen';
+import MenuScreen from './screens/menuScreen';
 
 const start = ({route, navigation}) => {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Stack.Screen name="Start" component={start} />
         <Stack.Screen name="In House" component={inHouseScreen} />
         <Stack.Screen name="To Go" component={toGoScreen} />
+        <Stack.Screen name="Menu" component={MenuScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
