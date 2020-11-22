@@ -26,6 +26,9 @@ const MenuScreen = ({route, navigation}) => {
     return (
         <View style={styles.screen} >
             <Text>Welcome to {restaurant.name}</Text>
+            {restaurant.menu.forEach(group => {
+                <Text>{group}</Text>
+            })}
         </View>
     );
 };
