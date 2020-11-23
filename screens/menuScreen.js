@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
+import { View, Text, StyleSheet, Alert, FlatList } from 'react-native';
 
 import data from '../data/dummy-data';
+import MenuGroupItem from '../components/menuGroupItem';
 
 const MenuScreen = ({route, navigation}) => {
     const restaurants = data.restaurants;
@@ -27,8 +28,14 @@ const MenuScreen = ({route, navigation}) => {
         <View style={styles.screen} >
             <Text>Welcome to {restaurant.name}</Text>
             {restaurant.menu.forEach(group => {
-                <Text>{group.groupName}</Text>
+                console.log(group);
+                return <Text>{group.groupName}</Text>
             })}
+            <FlatList
+                data={restaurant.menu}
+                keyExtractor={(group) => group.id}
+                renderItem={groupData => <MenuGroupItem groupName={groupData.item.groupName} />}
+            />
         </View>
     );
 };
