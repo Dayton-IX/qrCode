@@ -21,6 +21,23 @@ export default data = {
                             ]
                         }
                     ]
+                },
+                {
+                    groupName: 'Pho',
+                    items: [
+                        {
+                            name: 'P1',
+                            id: '0figjvhr8858efxve',
+                            price: 9,
+                            time: 10,
+                            meal: [
+                                'Noodles',
+                                'Beef',
+                                'Bean Sprouts',
+                                'Beef Broth'
+                            ]
+                        }
+                    ]
                 }
             ]
         }

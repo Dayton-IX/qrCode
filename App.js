@@ -3,9 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import inHouseScreen from './screens/inHouseScreen';
-import toGoScreen from './screens/toGoScreen';
-import MenuScreen from './screens/menuScreen';
+import inHouseScreen from './screens/InHouseScreen';
+import toGoScreen from './screens/ToGoScreen';
+import MenuScreen from './screens/MenuScreen';
+import GroupItemsScreen from './screens/GroupItemsScreen';
 
 const start = ({route, navigation}) => {
   return (
@@ -29,6 +30,7 @@ export default function App() {
         <Stack.Screen name="In House" component={inHouseScreen} />
         <Stack.Screen name="To Go" component={toGoScreen} />
         <Stack.Screen name="Menu" component={MenuScreen} />
+        <Stack.Screen name="Group" component={GroupItemsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
