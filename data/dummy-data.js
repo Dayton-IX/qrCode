@@ -5,7 +5,7 @@ export default data = {
             id: '85ugjvrjhfos0',
             menu: [
                 {
-                    group: 'Bento',
+                    groupName: 'Bento',
                     items: [
                         {
                             name: 'Short Rib Bento',
