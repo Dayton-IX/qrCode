@@ -36,7 +36,7 @@ const MenuScreen = ({route, navigation}) => {
             <FlatList
                 data={restaurant.menu}
                 keyExtractor={(group) => group.id}
-                renderItem={groupData => <MenuGroupItem onPress={() => navigation.navigate('Group', {group: groupData.item})} groupName={groupData.item.groupName} />}
+                renderItem={groupData => <MenuGroupItem id={groupData.item.id} onPress={() => navigation.navigate('Group', {group: groupData.item})} groupName={groupData.item.groupName} />}
             />
         </View>
     );
