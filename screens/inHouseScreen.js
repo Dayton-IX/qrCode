@@ -44,9 +44,6 @@ export default function App({route, navigation}) {
 				}}>
 					<Text style={styles.qrText}>Scan Qr Code</Text>
 				</TouchableOpacity>
-				<View style={styles.data}>
-					<Text style={styles.dataText}>{qrData}</Text>
-				</View>
 			</View>
 		}
 	</View>

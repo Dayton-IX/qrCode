@@ -16,8 +16,7 @@ const MenuScreen = ({route, navigation}) => {
         restaurants.forEach(restaurant => {
             if (restaurant.id === route.params.restaurantID) {
                 setRestaurant({name: restaurant.name, id: restaurant.id, menu: restaurant.menu})
-            } else {
-                Alert.alert('Invalid QR Code');
+                return
             }
         });
     }, [])
