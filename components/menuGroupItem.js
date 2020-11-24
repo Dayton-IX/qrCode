@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const MenuGroupItem = props => {
     return (
         <TouchableOpacity onPress={props.onPress} activeOpacity={0.6} style={styles.container} >
-            <Text style={styles.text}>{props.groupName}</Text>
+            <Text style={styles.text}>{props.name}</Text>
         </TouchableOpacity>
     );
 };
